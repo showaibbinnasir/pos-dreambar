@@ -2,6 +2,8 @@ import React from 'react'
 import Greetings from '../Greetings/Greetings'
 import DayOverView from '../DayOverview/DayOverView'
 import BookedListHome from '../BookedListHome/BookedListHome'
+import TopStates from '../TopStates/TopStates'
+import BestItems from '../BestItems/BestItems'
 
 export default function HomePageContents() {
   return (
@@ -11,8 +13,12 @@ export default function HomePageContents() {
                <DayOverView></DayOverView>
                <BookedListHome></BookedListHome>
         </div>
-        <div className='flex-[2] uppercase'>
-            <h1 className='text-white text-xl'>Sales Overview</h1>
+        <div className='flex-[2] scrollbar-hide overflow-hidden h-[75vh] uppercase'>
+            <h1 className='text-white text-xl mb-5'>Sales Overview</h1>
+            <TopStates/>
+            <h1 className='text-white text-xl my-5'>Best sold items</h1>
+            <BestItems/>
+            
         </div>
     </div>
   )
