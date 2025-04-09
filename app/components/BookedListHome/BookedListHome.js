@@ -1,4 +1,16 @@
-import { Button } from 'keep-react'
+'use client'
+import { Check } from 'phosphor-react'
+import {
+    Button,
+    Modal,
+    ModalAction,
+    ModalContent,
+    ModalDescription,
+    ModalFooter,
+    ModalHeader,
+    ModalTitle,
+} from 'keep-react'
+
 import React from 'react'
 
 export default function BookedListHome() {
@@ -67,9 +79,9 @@ export default function BookedListHome() {
                                     </div>
                                     <div className=' max-w-[100px]'>
                                         {
-                                            table.name.length > 15 ? 
-                                            <h1 title={table.name} className='text-xl'>{table.name.substring(0,15)}...</h1> : 
-                                            <h1  title={table.name} className='text-xl'>{table.name}</h1>
+                                            table.name.length > 15 ?
+                                                <h1 title={table.name} className='text-xl'>{table.name.substring(0, 15)}...</h1> :
+                                                <h1 title={table.name} className='text-xl'>{table.name}</h1>
                                         }
                                         <h1>{table.phone}</h1>
                                     </div>
@@ -77,7 +89,23 @@ export default function BookedListHome() {
                                 <div className='border px-3 py-1 hover:bg-[#FC9E33] hover:rounded-[10px] border-[#FC9E33] rounded-[10px]'>
                                     <h1>Table {table.table}</h1>
                                 </div>
-                                <div>
+                                <div className='flex gap-5'>
+                                    <Modal>
+                                        <ModalAction asChild>
+                                            <Button className=' bg-[#186925] hover:bg-[#FC9E33]'>Book details</Button>
+                                        </ModalAction>
+                                        <ModalContent className="max-w-[20rem] lg:max-w-[24rem]">
+                                            <ModalHeader className="mb-6 flex flex-col items-center justify-center space-y-3">
+                                                <h1>Name: {table.name}</h1>
+                                                <h1>Phone: {table.phone}</h1>
+                                                <h1>Table: {table.table}</h1>
+                                            </ModalHeader>
+                                            <ModalFooter className="justify-center">
+                                                <Button className='bg-[#FC9E33] hover:bg-[#186925]'>Finish</Button>
+                                            </ModalFooter>
+                                        </ModalContent>
+                                    </Modal>
+
                                     <Button className='bg-[#FC9E33] hover:bg-[#186925]'>Finish</Button>
                                 </div>
                             </div>
